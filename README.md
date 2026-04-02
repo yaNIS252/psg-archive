@@ -13,6 +13,7 @@ Moteur de recherche : Filtrage dynamique par nom, nationalité et périodes d'ac
 Interface Moderne : Utilisation de la bibliothèque FlatLaf pour un rendu "Dark Mode" épuré.
 
 🛠️ Stack Technique
+
 Langage : Java 17+
 
 Framework : Spring Boot 3 (Core, Data JPA)
