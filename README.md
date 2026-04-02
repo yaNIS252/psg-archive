@@ -1,125 +1,93 @@
-# 🏦 Prédiction du taux de désabonnement des clients bancaires
+🔴🔵 PSG Archive — Gestion & Data
+PSG Archive est une application Desktop (Client Lourd) développée en Java avec le framework Spring Boot. Elle permet de centraliser, d'administrer et de consulter l'historique des joueurs du Paris Saint-Germain dans une interface moderne et sécurisée.
 
-Modèle de machine learning pour prédire si un client bancaire va quitter la banque (churn), basé sur ses caractéristiques démographiques et comportementales.
+🚀 Fonctionnalités
+Authentification sécurisée : Système de login relié à une base de données MySQL.
 
-**Contexte métier** : Le churn client coûte en moyenne 5× plus cher qu'une rétention. Ce modèle permet d'identifier en amont les clients à risque pour cibler les campagnes de fidélisation.
+Gestion des rôles (RBAC) : * ADMIN : Accès complet au CRUD (Ajout, Modification, Suppression de joueurs).
 
----
+USER : Consultation et recherche uniquement.
 
-## 📊 Résultats
+Moteur de recherche : Filtrage dynamique par nom, nationalité et périodes d'activité au club.
 
-| Modèle | Accuracy | ROC-AUC |
-|--------|----------|---------|
-| Régression Logistique | ~81% | ~0.77 |
-| **Random Forest** | **~86%** | **~0.86** |
+Interface Moderne : Utilisation de la bibliothèque FlatLaf pour un rendu "Dark Mode" épuré.
 
-Le Random Forest surpasse significativement la baseline logistique, notamment sur le Recall de la classe churn (+15%).
+🛠️ Stack Technique
 
----
+Langage : Java 17+
 
-## 🔍 Dataset
+Framework : Spring Boot 3 (Core, Data JPA)
 
-- **Source** : [Churn Modelling – Kaggle](https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling)
-- **Taille** : 10 000 clients, 14 variables
-- **Cible** : `Exited` — 1 si le client a quitté la banque (20.4% de la population)
-- **Variables clés** : Age, Balance, NumOfProducts, IsActiveMember, Geography, CreditScore
+Base de données : MySQL
 
----
+Interface Graphique : Java Swing + FlatLaf
 
-## 🗂️ Structure du projet
+Gestionnaire de projet : Maven (Gestion des dépendances et build)
 
-```
-churn-prediction/
-├── churn_prediction.py     # Pipeline ML complet
-├── requirements.txt        # Dépendances Python
-└── README.md
-```
+📂 Structure du Projet
+Plaintext
+src/main/java/com/yanis/psgarchive/
 
----
+├── entity/       # Modèles de données (Joueur, Utilisateur, Nationalité)
 
-## ⚙️ Pipeline ML
+├── repository/   # Interfaces Spring Data JPA pour les requêtes SQL
 
-```
-Données brutes (CSV)
-    ↓
-Analyse exploratoire (EDA) — distributions, corrélations, déséquilibre de classes
-    ↓
-Preprocessing — suppression colonnes inutiles, LabelEncoder, One-Hot Encoding
-    ↓
-Train/Test Split — 80/20, stratifié sur la classe cible
-    ↓
-Normalisation (StandardScaler) — fit uniquement sur le train set (pas de data leakage)
-    ↓
-Entraînement — Régression Logistique + Random Forest
-    ↓
-Évaluation — Classification Report, Matrice de Confusion, Courbe ROC, Feature Importance
-```
+└── view/         # Fenêtres et composants Swing (UI)
 
----
+⚙️ Installation et Lancement
+Prérequis
+Java JDK 17 ou supérieur installé.
 
-## 🚀 Installation & Lancement
+Un serveur MySQL actif avec une base nommée psg_archive.
 
-**1. Cloner le repo**
-```bash
-git clone https://github.com/<ton-username>/churn-prediction.git
-cd churn-prediction
-```
+Build du projet
+Pour générer le fichier exécutable (.jar), utilisez la commande Maven suivante à la racine du projet :
 
-**2. Installer les dépendances**
-```bash
-pip install -r requirements.txt
-```
+Bash
+./mvnw clean package
+Exécution
+Une fois le build terminé, lancez l'application via le terminal ou en double-cliquant sur le fichier généré dans le dossier /target :
 
-**3. Télécharger le dataset**
+Bash
+java -jar target/psg-archive-0.0.1-SNAPSHOT.jar
+🎓 Objectifs Pédagogiques
+Ce projet a été réalisé dans le cadre du BTS SIO (Option SLAM). Il démontre la capacité à :
 
-Télécharger `Churn_Modelling.csv` depuis [Kaggle](https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling) et le placer à la racine du projet.
+Concevoir une architecture logicielle robuste et scalable.
 
-**4. Lancer**
-```bash
-python churn_prediction.py
-```
+Gérer le cycle de vie complet de la donnée (Saisie -> Stockage -> Affichage).
 
-4 graphiques PNG sont générés : distribution du churn, matrice de corrélation, matrices de confusion, courbe ROC.
+Implémenter des règles de gestion métier et de sécurité (Gestion des droits).
 
----
+Développé par Yanis — Étudiant en BTS SIO SLAM, futur alternant en Licence IA & Data.
 
-## 📦 Dépendances
+Captures d'écran
 
-```
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-```
+LOGIN
 
----
+<img width="377" height="264" alt="image" src="https://github.com/user-attachments/assets/d3c87f75-6c94-4b10-8b97-b4d3fc9d02f8" />
 
-## 📈 Insights métier
 
-Les variables les plus prédictives identifiées par la Feature Importance du Random Forest :
+ACCEUIL ADMIN
 
-1. **Age** — les clients plus âgés (45+) churent significativement plus
-2. **NumOfProducts** — les clients avec 3-4 produits churent massivement (paradoxe de sur-engagement)
-3. **IsActiveMember** — les membres inactifs sont 2× plus susceptibles de partir
-4. **Balance** — les soldes élevés sans activité sont un signal fort de départ imminent
+<img width="1181" height="787" alt="image" src="https://github.com/user-attachments/assets/3273d2aa-7bac-4cfe-9be3-1e7793ec79e7" />
 
----
 
-## 🔧 Améliorations possibles
+ACCEUIL USER
 
-- [ ] Gérer le déséquilibre de classes avec SMOTE ou `class_weight='balanced'`
-- [ ] Optimisation des hyperparamètres avec `GridSearchCV`
-- [ ] Remplacer Random Forest par XGBoost ou LightGBM
-- [ ] Ajouter l'interprétabilité avec SHAP
-- [ ] Encapsuler dans un `Pipeline` scikit-learn
-- [ ] Déployer comme API REST avec FastAPI
+<img width="1179" height="777" alt="image" src="https://github.com/user-attachments/assets/7cc911fd-0bb2-4808-8438-01b18b205753" />
 
----
 
-## 👤 Auteur
+MODIFIER JOUEUR
 
-**Yanis** — Étudiant BTS SIO SLAM, en recherche d'alternance Data/IA (Licence/Bachelor)
+<img width="432" height="391" alt="image" src="https://github.com/user-attachments/assets/b7ea0049-74d5-4580-8ba2-0648006cd2ec" />
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)]((https://www.linkedin.com/in/yanis-le-port-3b0a63326/))
-[![Portfolio](https://img.shields.io/badge/Portfolio-Voir-black)]((https://yanis252.github.io/Portfolio/))
+
+AJOUTER UN JOUEUR
+
+<img width="432" height="389" alt="image" src="https://github.com/user-attachments/assets/df108db6-a5d2-4354-a469-a4e91225749a" />
+
+
+RECHERCHE PAR FILTRE 
+
+<img width="1167" height="135" alt="image" src="https://github.com/user-attachments/assets/5f278cea-ec41-46da-adc9-2f2ee9b1f883" />
