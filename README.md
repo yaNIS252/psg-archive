@@ -101,5 +101,3 @@ java -jar target/psg-archive-0.0.1-SNAPSHOT.jar
 
 **Yanis** — Étudiant BTS SIO SLAM, en recherche d'alternance Data/IA (Licence/Bachelor)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/ton-profil)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Voir-black)](https://ton-portfolio.netlify.app)
