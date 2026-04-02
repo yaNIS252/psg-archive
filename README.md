@@ -1,26 +1,62 @@
-# PSG Archive
+🔴🔵 PSG Archive — Gestion & Data
+PSG Archive est une application Desktop (Client Lourd) développée en Java avec le framework Spring Boot. Elle permet de centraliser, d'administrer et de consulter l'historique des joueurs du Paris Saint-Germain dans une interface moderne et sécurisée.
 
-Application desktop Java de gestion des joueurs historiques du PSG.
-Authentification par rôles (ADMIN / USER), CRUD complet, interface Dark Mode.
+🚀 Fonctionnalités
+Authentification sécurisée : Système de login relié à une base de données MySQL.
 
-## Stack technique
-- Java + Spring Boot + Spring Data JPA
-- MySQL
-- Maven
-- FlatLaf (UI)
+Gestion des rôles (RBAC) : * ADMIN : Accès complet au CRUD (Ajout, Modification, Suppression de joueurs).
 
-## Prérequis
-- Java 17+ installé
-- MySQL en local avec une base nommée `psg_archive`
+USER : Consultation et recherche uniquement.
 
-## Lancer le projet
-```bash
-java -jar psg-archive.jar
-```
+Moteur de recherche : Filtrage dynamique par nom, nationalité et périodes d'activité au club.
 
-Compte de démonstration : `admin` / `user`
+Interface Moderne : Utilisation de la bibliothèque FlatLaf pour un rendu "Dark Mode" épuré.
 
-## Captures d'écran
+🛠️ Stack Technique
+Langage : Java 17+
+
+Framework : Spring Boot 3 (Core, Data JPA)
+
+Base de données : MySQL
+
+Interface Graphique : Java Swing + FlatLaf
+
+Gestionnaire de projet : Maven (Gestion des dépendances et build)
+
+📂 Structure du Projet
+Plaintext
+src/main/java/com/yanis/psgarchive/
+├── entity/       # Modèles de données (Joueur, Utilisateur, Nationalité)
+├── repository/   # Interfaces Spring Data JPA pour les requêtes SQL
+└── view/         # Fenêtres et composants Swing (UI)
+⚙️ Installation et Lancement
+Prérequis
+Java JDK 17 ou supérieur installé.
+
+Un serveur MySQL actif avec une base nommée psg_archive.
+
+Build du projet
+Pour générer le fichier exécutable (.jar), utilisez la commande Maven suivante à la racine du projet :
+
+Bash
+./mvnw clean package
+Exécution
+Une fois le build terminé, lancez l'application via le terminal ou en double-cliquant sur le fichier généré dans le dossier /target :
+
+Bash
+java -jar target/psg-archive-0.0.1-SNAPSHOT.jar
+🎓 Objectifs Pédagogiques
+Ce projet a été réalisé dans le cadre du BTS SIO (Option SLAM). Il démontre la capacité à :
+
+Concevoir une architecture logicielle robuste et scalable.
+
+Gérer le cycle de vie complet de la donnée (Saisie -> Stockage -> Affichage).
+
+Implémenter des règles de gestion métier et de sécurité (Gestion des droits).
+
+Développé par Yanis — Étudiant en BTS SIO SLAM, futur alternant en Licence IA & Data.
+
+Captures d'écran
 
 LOGIN
 
