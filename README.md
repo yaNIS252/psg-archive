@@ -1,4 +1,4 @@
-# 🏦 Bank Customer Churn Prediction
+# 🏦 Prédiction du taux de désabonnement des clients bancaires
 
 Modèle de machine learning pour prédire si un client bancaire va quitter la banque (churn), basé sur ses caractéristiques démographiques et comportementales.
 
