@@ -18,7 +18,7 @@ Authentification par rôles (ADMIN / USER), CRUD complet, interface Dark Mode.
 java -jar psg-archive.jar
 ```
 
-Compte de démonstration : `admin` / `admin`
+Compte de démonstration : `admin` / `user`
 
 ## Captures d'écran
 
