@@ -27,9 +27,13 @@ Gestionnaire de projet : Maven (Gestion des dépendances et build)
 📂 Structure du Projet
 Plaintext
 src/main/java/com/yanis/psgarchive/
+
 ├── entity/       # Modèles de données (Joueur, Utilisateur, Nationalité)
+
 ├── repository/   # Interfaces Spring Data JPA pour les requêtes SQL
+
 └── view/         # Fenêtres et composants Swing (UI)
+
 ⚙️ Installation et Lancement
 Prérequis
 Java JDK 17 ou supérieur installé.
