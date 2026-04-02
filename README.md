@@ -1,10 +1,15 @@
+
 🔴🔵 PSG Archive — Gestion & Data
 PSG Archive est une application Desktop (Client Lourd) développée en Java avec le framework Spring Boot. Elle permet de centraliser, d'administrer et de consulter l'historique des joueurs du Paris Saint-Germain dans une interface moderne et sécurisée.
 
-🚀 Fonctionnalités
-Authentification sécurisée : Système de login relié à une base de données MySQL.
+Contexte métier : La gestion de données historiques nécessite une structure fiable et une séparation stricte des droits d'accès. Ce projet simule un outil d'administration interne pour un club sportif professionnel.
 
-Gestion des rôles (RBAC) : * ADMIN : Accès complet au CRUD (Ajout, Modification, Suppression de joueurs).
+🚀 Fonctionnalités
+Authentification sécurisée : Système de login robuste relié à une base de données MySQL.
+
+Gestion des rôles (RBAC) :
+
+ADMIN : Accès complet au CRUD (Ajout, Modification, Suppression de joueurs).
 
 USER : Consultation et recherche uniquement.
 
@@ -13,7 +18,6 @@ Moteur de recherche : Filtrage dynamique par nom, nationalité et périodes d'ac
 Interface Moderne : Utilisation de la bibliothèque FlatLaf pour un rendu "Dark Mode" épuré.
 
 🛠️ Stack Technique
-
 Langage : Java 17+
 
 Framework : Spring Boot 3 (Core, Data JPA)
@@ -24,43 +28,41 @@ Interface Graphique : Java Swing + FlatLaf
 
 Gestionnaire de projet : Maven (Gestion des dépendances et build)
 
-📂 Structure du Projet
+🗂️ Structure du Projet
 Plaintext
 src/main/java/com/yanis/psgarchive/
-
 ├── entity/       # Modèles de données (Joueur, Utilisateur, Nationalité)
+├── repository/   # Interfaces Spring Data JPA (Requêtes SQL automatisées)
+└── view/         # Fenêtres et composants Swing (Interface Utilisateur)
+⚙️ Architecture & Pipeline
 
-├── repository/   # Interfaces Spring Data JPA pour les requêtes SQL
+Shutterstock
+Couche Entity : Mapping des tables SQL en objets Java via Hibernate.
 
-└── view/         # Fenêtres et composants Swing (UI)
+Couche Repository : Abstraction de la base de données avec Spring Data JPA.
 
-⚙️ Installation et Lancement
-Prérequis
-Java JDK 17 ou supérieur installé.
+Couche View : Interface graphique réactive pilotée par les services Spring.
 
-Un serveur MySQL actif avec une base nommée psg_archive.
+🚀 Installation & Lancement
+Prérequis : Java JDK 17 et serveur MySQL avec une base psg_archive.
 
-Build du projet
-Pour générer le fichier exécutable (.jar), utilisez la commande Maven suivante à la racine du projet :
-
-Bash
+Build du projet : ```bash
 ./mvnw clean package
-Exécution
-Une fois le build terminé, lancez l'application via le terminal ou en double-cliquant sur le fichier généré dans le dossier /target :
+
+Exécution : Lancez le fichier .jar généré dans le dossier /target.
 
 Bash
 java -jar target/psg-archive-0.0.1-SNAPSHOT.jar
-🎓 Objectifs Pédagogiques
-Ce projet a été réalisé dans le cadre du BTS SIO (Option SLAM). Il démontre la capacité à :
+🎓 Objectifs Pédagogiques (BTS SIO)
+Ce projet valide les compétences du bloc "Conception et développement d'applications" :
 
-Concevoir une architecture logicielle robuste et scalable.
+Conception d'une architecture logicielle robuste et scalable.
 
-Gérer le cycle de vie complet de la donnée (Saisie -> Stockage -> Affichage).
+Gestion du cycle de vie complet de la donnée (Saisie -> Stockage -> Affichage).
 
-Implémenter des règles de gestion métier et de sécurité (Gestion des droits).
+Implémentation de règles de gestion métier et de sécurité (RBAC).
 
-Développé par Yanis — Étudiant en BTS SIO SLAM, futur alternant en Licence IA & Data.
-
+👤 Auteur : Yanis — Étudiant en BTS SIO SLAM, futur alternant en Licence IA & Data.
 Captures d'écran
 
 LOGIN
