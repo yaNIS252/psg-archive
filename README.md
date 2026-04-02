@@ -21,5 +21,6 @@ java -jar psg-archive.jar
 Compte de démonstration : `admin` / `admin`
 
 ## Captures d'écran
-![Login](screenshots/login.png)
+![Login](screenshots/login.png)<img width="1181" height="787" alt="image" src="https://github.com/user-attachments/assets/3273d2aa-7bac-4cfe-9be3-1e7793ec79e7" />
+
 ![Dashboard](screenshots/dashboard.png)
