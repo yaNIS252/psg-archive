@@ -88,15 +88,6 @@ java -jar target/psg-archive-0.0.1-SNAPSHOT.jar
 
 ---
 
-## 🔧 Améliorations possibles
-
-- [ ] Ajouter une couche Service entre Repository et View
-- [ ] Exporter les données en CSV ou PDF
-- [ ] Ajouter des statistiques visuelles (charts par nationalité, période, etc.)
-- [ ] Migrer vers une interface web avec Spring MVC ou React
-
----
-
 ## 👤 Auteur
 
 **Yanis** — Étudiant BTS SIO SLAM, en recherche d'alternance Data/IA (Licence/Bachelor)
